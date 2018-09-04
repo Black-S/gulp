@@ -1,0 +1,353 @@
+.achievements {
+  &-wrapp {
+    padding-left: 40px;
+    padding-right: 40px;
+
+    .achievement-card {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      //opacity: 0;
+
+      &.animate {
+        opacity: 1;
+        //animation: appearing 1.5s, fade 3s; // @todo add class animation
+
+       /* &.right {
+          animation: appearRight 1.5s, fadeIn 3s;
+
+          .achievement-card__media {
+            animation: appearLeft 2.5s, fade 3s;
+          }
+        }
+
+        animation: appearLeft 1.5s, fadeIn 3s;
+
+        .achievement-card__media {
+          animation: appearRight 2.5s, fade 3s;
+        }
+*/
+      }
+
+      &::after {
+        display: block;
+        content: "";
+        clear: both;
+      }
+
+      &.right {
+        .achievement-card__media {
+          float: left;
+          margin-left: 0;
+          margin-right: 10%;
+
+          &-img {
+            margin-right: auto;
+          }
+        }
+      }
+
+      &__media {
+        float: right;
+        text-align: right;
+        margin-left: 10%;
+        width: 45%;
+        position: relative;
+        min-height: 400px;
+
+        &-img {
+          position: relative;
+          margin-left: auto;
+
+          &::before {
+            position: absolute;
+            z-index: 0;
+            opacity: 0.99;
+            content: '';
+            top: 20px;
+            right: -20px;
+            display: block;
+            width: 100%;
+            height: 100%;
+            outline: 1px solid $border-color;
+          }
+
+          img {
+            position: relative;
+            z-index: 2;
+            max-width: initial;
+            max-height: initial;
+            min-width: 100%;
+            min-height: 100%;
+          }
+        }
+      }
+
+      &__year {
+        font-size: 34px;
+        font-weight: 600;
+        line-height: 1.24;
+        color: $text-grey;
+        margin-bottom: 17px;
+      }
+
+      &__header {
+        font-size: 60px;
+        font-weight: 600;
+        line-height: 1.17;
+        color: $white;
+        margin-bottom: 23px;
+      }
+
+      &__text {
+        opacity: 0.8;
+        font-size: 24px;
+        line-height: 1.42;
+        letter-spacing: 1px;
+        color: $white;
+        margin-bottom: 20px;
+      }
+
+      &__footer {
+        font-size: 34px;
+        font-weight: 600;
+        line-height: 1.24;
+        display: flex;
+        align-items: center;
+        transition: 0.3s;
+
+        &:hover {
+          .achievement-card__footer--text {
+            color: $white;
+          }
+
+          .achievement-card__footer--img {
+            opacity: 1;
+          }
+        }
+
+        &--text {
+          color: $border-color;
+          margin-right: 10px;
+          text-decoration: line-through;
+
+          &.not-crossed-out {
+            text-decoration: none;
+          }
+        }
+
+        &--img {
+          opacity: 0;
+          max-width: 90px;
+          max-height: 90px;
+        }
+      }
+    }
+  }
+}
+
+/* ACHIEVEMENTS ANIMATION
+----------------------------------------------------------------------------------------- */
+@keyframes appearing {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes appearLeft {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes appearRight {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* ACHIEVEMENTS MEDIA QUERIES
+----------------------------------------------------------------------------------------- */
+@media (max-width: $screen-l) {
+  .achievements-wrapp {
+    .achievement-card {
+      &__media-img {
+        img {
+          max-width: 100%;
+        }
+      }
+
+      &__header {
+        font-size: 50px;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-m) {
+  .achievements {
+    &-wrapp {
+      padding-left: 15px;
+      padding-right: 15px;
+
+      .achievement-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+
+        &.right {
+          .achievement-card__media {
+            float: none;
+            margin-right: 0;
+            margin-left: -20px;
+          }
+        }
+
+        &__media {
+          float: none;
+          order: 3;
+          min-height: auto;
+          width: calc(100% - 30px);
+          margin-left: -30px;
+          margin-bottom: 60px;
+
+          &-img {
+            max-height: 380px;
+            width: fit-content;
+            margin-right: auto;
+
+            &::before {
+              top: 15px;
+              right: -15px;
+            }
+
+            img {
+              min-width: auto;
+            }
+          }
+        }
+
+        &__year {
+          font-size: 34px;
+          order: 1;
+          margin-bottom: 40px;
+        }
+
+        &__header {
+          order: 2;
+          text-align: center;
+          margin-bottom: 40px;
+        }
+
+        &__text {
+          letter-spacing: normal;
+          text-align: center;
+          order: 4;
+          width: 80%;
+        }
+
+        &__footer {
+          height: 90px;
+          order: 5;
+
+          &:hover {
+            .achievement-card__footer--img {
+              display: block;
+            }
+          }
+
+          &--img {
+            display: none;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-s) {
+  .achievements {
+    &-wrapp {
+      padding-left: 0;
+      padding-right: 0;
+
+      .achievement-card {
+        &__year {
+          font-size: 18px;
+          line-height: 2.22;
+        }
+
+        &__header {
+          font-size: 30px;
+          line-height: 1.33;
+        }
+
+        &__text {
+          font-size: 18px;
+          line-height: 1.33;
+          letter-spacing: normal;
+        }
+
+        &__footer {
+          font-size: 18px;
+          line-height: 2.22;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-xs) {
+  .achievements {
+    &-wrapp {
+      .achievement-card {
+        &.right {
+          .achievement-card__media {
+            margin-left: -20px;
+          }
+        }
+
+        &__media {
+          width: calc(100% - 20px);
+          margin-left: -20px;
+        }
+
+        &-text {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

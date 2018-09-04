@@ -1,0 +1,306 @@
+.contact-us {
+  padding: 30px;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+
+  &-wrapp {
+    display: flex;
+    width: 100%;
+    opacity: 0;
+
+    &.animate {
+      opacity: 1;
+      animation: slide 1s, fadeIn 1.5s;
+    }
+  }
+
+
+  .registration {
+    margin-right: 30px;
+
+    &-form {
+      width: 100%;
+      position: relative;
+      border-bottom: 1px solid $secondary;
+
+      &__input {
+        width: 100%;
+        height: 54px;
+        opacity: 0.3;
+        font-family: Graphik;
+        font-size: 42px;
+        line-height: 1.24;
+        letter-spacing: -0.6px;
+        color: $black;
+        background: none;
+        border: 0;
+      }
+
+      &__button {
+        position: absolute;
+        width: 65px;
+        height: 100%;
+        padding: 0;
+        right: 5px;
+        bottom: 0;
+        border-radius: 0;
+        border: 0;
+        background: none;
+        cursor: pointer;
+
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          background: $success;
+          width: 6px;
+          height: 60%;
+          background: #7ed321;
+          transform: rotate(-50deg);
+          display: none;
+        }
+
+        &::after {
+          content: '';
+          display: block;
+          height: 100%;
+          position: absolute;
+          bottom: 0;
+          background: $success;
+          width: 6px;
+          transform: rotate(40deg);
+          right: 33px;
+          display: none;
+        }
+
+        &:hover {
+          svg {
+            transform: rotate(10deg);
+            transition: transform .15s;
+          }
+        }
+
+        &.clicked {
+          color: #6AAA3B;
+          padding-right: 6px;
+          animation: bounce-in .3s;
+          cursor: default;
+
+          svg {
+            animation: flyaway 1.3s linear forwards;
+            top: -80px;
+            right: -1000px;
+
+            path {
+              //fill: #6AAA3B;
+            }
+          }
+        }
+
+        svg {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          transition: transform .15s;
+
+          path {
+            //fill: #2D7586;
+          }
+        }
+      }
+    }
+
+    .card__header {
+      letter-spacing: -0.9px;
+    }
+  }
+
+  .sharing-side {
+    .share-list-item {
+      width: 100px;
+      height: 100px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+      margin-right: 15px;
+      opacity: 0.4;
+      border-radius: 3px;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background: $accent;
+        opacity: 0.6;
+      }
+    }
+  }
+
+  .card {
+    width: 100%;
+    padding: 160px 60px 135px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &.card-accent {
+      background: $primary;
+    }
+
+    &.card-dark {
+      background: rgba(37,37,37,1);
+      background: -moz-linear-gradient(top, rgba(37,37,37,1) 0%, rgba(26,26,26,1) 100%);
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(37,37,37,1)), color-stop(100%, rgba(26,26,26,1)));
+      background: -webkit-linear-gradient(top, rgba(37,37,37,1) 0%, rgba(26,26,26,1) 100%);
+      background: -o-linear-gradient(top, rgba(37,37,37,1) 0%, rgba(26,26,26,1) 100%);
+      background: -ms-linear-gradient(top, rgba(37,37,37,1) 0%, rgba(26,26,26,1) 100%);
+      background: linear-gradient(to bottom, rgba(37,37,37,1) 0%, rgba(26,26,26,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#252525', endColorstr='#1a1a1a', GradientType=0 );
+
+
+      .card__header {
+        color: $text-light;
+        opacity: 1;
+
+        .text-accent {
+          color: $white;
+          opacity: 1;
+          font-weight: 600;
+        }
+      }
+    }
+
+    &__header {
+      margin-bottom: 65px;
+      font-size: 42px;
+      font-weight: normal;
+      line-height: 1.24;
+      letter-spacing: -0.6px;
+      color: $black;
+
+      .text-accent {
+
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+/* CONTACT US ANIMATION
+------------------------------------------------------------------------------------------------------ */
+@keyframes slide {
+  from {
+    transform: perspective(50vw) rotateX(50deg) translateY(50%);
+  }
+
+  to {
+    transform: perspective(50vw) rotateX(0deg) translateY(0);
+  }
+}
+
+@keyframes flyaway {
+  0%   { transform: rotate(10deg);
+    top: 13px;
+    right: 25px;
+    height: 30px; }
+  5%   { transform: rotate(10deg);
+    top: 13px;
+    right: 0;
+    height: 30px; }
+  20%   { transform: rotate(-20deg);
+    top: 13px;
+    right: -130px;
+    height: 45px; }
+  40%   { transform: rotate(10deg);
+    top: -40px;
+    right: -280px;
+    opacity: 1; }
+  100% { transform: rotate(60deg);
+    top: -200px;
+    right: -1000px;
+    height: 0;
+    opacity: 0; }
+}
+
+@keyframes bounce-in {
+  0% { padding-right: 30px; }
+  40% { padding-right: 6px; }
+  50% { padding-left: 30px; }
+  100% { padding-left: 6px; }
+}
+
+/* CONTACT US MEDIA QUERIES
+------------------------------------------------------------------------------------------------------ */
+@media (max-width: $screen-l) {
+  .contact-us {
+    .card {
+      padding: 60px 40px 75px;
+    }
+  }
+}
+
+@media (max-width: $screen-m) {
+  .contact-us {
+    &-wrapp {
+      flex-direction: column;
+    }
+
+    .registration {
+      margin-bottom: 30px;
+      margin-right: 0;
+
+      &-form {
+        height: 30px;
+
+        &__input {
+          height: 24px;
+          opacity: 0.3;
+          font-size: 24px;
+          line-height: 2.17;
+          letter-spacing: -0.4px;
+        }
+
+        &__button {
+          width: 35px;
+          height: 40px;
+        }
+      }
+    }
+
+    .sharing-side {
+      .share-list-item {
+        width: 50px;
+        height: 50px;
+        background: $accent;
+        opacity: 0.6;
+
+        &__img {
+          max-width: 19px;
+          max-height: 19px;
+        }
+      }
+    }
+
+    .card {
+      padding: 50px 30px 80px;
+    }
+  }
+}
+
+@media (max-width: $screen-xs) {
+  .contact-us {
+    padding: 15px;
+
+    .registration {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+
+
+
+

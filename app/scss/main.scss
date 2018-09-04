@@ -1,0 +1,148 @@
+.main {
+  min-height: 100vh;
+  position: relative;
+
+  .main-wrapper {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .main-content {
+    display: flex;
+    align-items: center;
+    margin-left: 10%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  &__arrow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: mainArrow 1s ease-out, fadeIn 0.7s ease-in-out;
+
+    img {
+      max-width: initial;
+    }
+  }
+
+  &__text {
+    box-sizing: border-box;
+    width: 60%;
+    position: relative;
+    z-index: 4;
+    animation: mainText 0.6s linear, fadeIn 2s;
+  }
+
+  &__img {
+    box-sizing: border-box;
+    width: 40%;
+    position: absolute;
+    right: 0;
+    z-index: 0;
+  }
+}
+
+/* MAIN ANIMATIONS
+------------------------------------------------------------------------------------------------ */
+@keyframes mainArrow {
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes mainText {
+  from {
+    transform: translateY(20%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+
+/* MAIN MEDIA QUERIES
+------------------------------------------------------------------------------------------------ */
+@media (min-width: $screen-xl) {
+  .main {
+    .main-content {
+      margin-left: 0;
+    }
+  }
+}
+
+@media (max-width: $screen-m) {
+  .main {
+    &-wrapper {
+     flex-direction: column;
+      justify-content: center;
+    }
+
+    &__arrow {
+      order: 2;
+      align-self: flex-start;
+      bottom: 30px;
+      max-height: 120px;
+    }
+
+    &__text {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+@media (max-width: $screen-s) {
+  .main {
+    display: block;
+
+    .main-wrapper {
+      display: block;
+    }
+
+    .main-content {
+      margin-left: 0;
+      flex-direction: column;
+    }
+
+    &__arrow {
+      bottom: 30px;
+    }
+
+    &__text {
+      width: 100%;
+    }
+
+    &__img {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: $screen-s) {
+  .main {
+    .main-content {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    &__arrow {
+      display: none;
+    }
+
+    &__text {
+      margin-bottom: 30px;
+    }
+
+    &__img {
+      position: static;
+    }
+  }
+}

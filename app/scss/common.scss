@@ -1,0 +1,155 @@
+@font-face {
+  font-family: Graphik;
+  src: url(../fonts/Graphik-Extralight.woff2);
+  font-style: normal;
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: Graphik;
+  src: url(../fonts/Graphik-Light.woff2);
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Graphik;
+  src: url(../fonts/Graphik-Regular.woff2);
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Graphik;
+  src: url(../fonts/Graphik-Medium.woff2);
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: Graphik;
+  src: url(../fonts/Graphik-Semibold.woff2);
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Graphik;
+  src: url(../fonts/Graphik-Bold.woff2);
+  font-style: normal;
+  font-weight: 900;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Graphik, sans-serif;
+  font-size: 16px;
+}
+
+.full-screen {
+  min-height: 100vh;
+}
+
+/* TYPOGRAPHY
+----------------------------------------------------------------------------------- */
+.section-title {
+  color: $white;
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -2.5px;
+
+  @media (max-width: $screen-l) {
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 1.13;
+    letter-spacing: -0.7px;
+  }
+
+  @media (max-width: $screen-m) {
+    font-size: 50px;
+  }
+
+  @media (max-width: $screen-s) {
+    font-size: 34px;
+    line-height: 1.24;
+    letter-spacing: -0.4px;
+  }
+
+  .accent {
+    color: $primary;
+  }
+}
+
+/* CONTAINER
+----------------------------------------------------------------------------------- */
+.container {
+  width: 94%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: $screen-xl) {
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  @media (max-width: $screen-s) {
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media (max-width: $screen-m) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* FLEXBOX
+----------------------------------------------------------------------------------- */
+.flex {
+  display: flex;
+
+  &.flex-center {
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.flex-v-center {
+    align-items: center;
+  }
+
+  &.flex-h-center {
+    justify-content: center;
+  }
+}
+
+
+/* KEYFRAMES
+----------------------------------------------------------------------------------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
